@@ -1,0 +1,22 @@
+name: Run Unit Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+        - uses: actions/checkout@v2
+          name: Checkout
+
+        - name: Build
+          run: dotnet build --configuration Release
+        - name: Test
+          run: dotnet test --configuration Release --no-build
