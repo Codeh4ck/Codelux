@@ -1,9 +1,31 @@
 # Codelux
-A collection of tools that simplify and abstract processes such as dependency injection, password encryption etc. Includes various ServiceStack helper libraries. 
-
-## What is Codelux?
 
 Codelux is a collection of tools that simplify and abstract processes such as dependency injection, caching, configuration, mapping etc. Codelux.ServiceStack includes various ServiceStack helper libraries that make OrmLite model mapping, dependency injection and bootstrapping simple, elegant and clean. Additionally, Codelux.Plugins provides a base  plugin framework for a pluggable architecture design.
+
+# Installation
+
+**Install Codelux core library to your project:**
+```powershell
+PM> Install-Package Codelux
+```
+
+**Install Codelux.Common library to your project**
+
+```powershell
+PM> Install-Package Codelux.Common
+```
+
+**Install Codelux.ServiceStack library to your project**
+
+```powershell
+PM> Install-Package Codelux.ServiceStack
+```
+
+**Install Codelux.Plugins library to your project**
+
+```powershell
+PM> Install-Package Codelux.Plugins
+```
 
 ## What does Codelux provide?
 
