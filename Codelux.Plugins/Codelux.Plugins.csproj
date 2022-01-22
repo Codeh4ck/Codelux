@@ -4,17 +4,18 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
-    <Version>1.3.4</Version>
+    <Version>1.0.0</Version>
     <Authors>Nikolas Andreou</Authors>
     <Company>Nikolas Andreou</Company>
-    <Description>Codelux.NetCore.Plugins is a minimal, agnostic and simple plugin framework that can also manage plugin configurations.</Description>
+    <Description>Codelux.Plugins is a minimal, agnostic and simple plugin framework that can also manage plugin configurations.</Description>
     <Copyright>Copyright ©2021-2022 Nikolas Andreou. All rights reserved.</Copyright>
-    <PackageProjectUrl>https://bitbucket.org/nickandreou/codelux.netcore</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Codeh4ck/Codelux</PackageProjectUrl>
     <PackageIcon>myAvatar.png</PackageIcon>
-    <RepositoryUrl>https://bitbucket.org/nickandreou/codelux.netcore</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Codeh4ck/Codelux</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>dependency injection, password encryption, servicestack, helper, helpers, cache, caching, encryption, hashing, hash, encrypt, dependency, injection, DI, plugin, plugins</PackageTags>
-    <AssemblyVersion>1.3.4</AssemblyVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
