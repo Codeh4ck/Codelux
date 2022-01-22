@@ -9,13 +9,14 @@
     <PackageIcon>myAvatar.png</PackageIcon>
     <RepositoryUrl>https://github.com/Codeh4ck/Codelux</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <Version>1.0.0</Version>
     <PackageReleaseNotes></PackageReleaseNotes>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <PackageIconUrl />
     <PackageTags>dependency injection, password encryption, servicestack, helper, helpers, cache, caching, encryption, hashing, hash, encrypt, dependency, injection, DI, plugin, plugins</PackageTags>
     <SignAssembly>False</SignAssembly>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
