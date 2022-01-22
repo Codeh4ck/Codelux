@@ -13,10 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-        - uses: actions/checkout@v2
-          name: Checkout
+		- uses: actions/setup-dotnet@v1
+		name: Setup .NET 6
+		with:
+			dotnet-version: '6.0.x'
+			include-prerelease: true
 
-        - name: Build
+        - uses: actions/checkout@v2
+          name: Checkout relevant branch
+
+        - name: Build project
           run: dotnet build --configuration Release
-        - name: Test
+        - name: Run unit tests 
           run: dotnet test --configuration Release --no-build
