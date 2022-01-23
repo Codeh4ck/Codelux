@@ -2,6 +2,8 @@
 
 [![Tests](https://github.com/Codeh4ck/Codelux/actions/workflows/ActionRunUnitTests.yml/badge.svg?branch=main)](https://github.com/Codeh4ck/Codelux/actions/workflows/ActionRunUnitTests.yml)
 
+[Click here for the old BitBucket repository](https://bitbucket.org/nickandreou/codelux.netcore/src/develop/) 
+
 # Codelux
 
 Codelux is a collection of tools that simplify and abstract processes such as dependency injection, caching, configuration, mapping etc. Codelux.ServiceStack includes various ServiceStack helper libraries that make OrmLite model mapping, dependency injection and bootstrapping simple, elegant and clean. Additionally, Codelux.Plugins provides a base  plugin framework for a pluggable architecture design.
