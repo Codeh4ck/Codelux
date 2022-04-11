@@ -1,12 +1,20 @@
-[![Codelux](https://img.shields.io/nuget/v/Codelux.svg?style=flat-square&label=Codelux)](https://www.nuget.org/packages/Codelux/) [![Codelux](https://img.shields.io/nuget/v/Codelux.Common.svg?style=flat-square&label=Codelux.Common)](https://www.nuget.org/packages/Codelux.Common/) [![Codelux](https://img.shields.io/nuget/v/Codelux.ServiceStack.svg?style=flat-square&label=Codelux.ServiceStack)](https://www.nuget.org/packages/Codelux.ServiceStack/) [![Codelux](https://img.shields.io/nuget/v/Codelux.Plugins.svg?style=flat-square&label=Codelux.Plugins)](https://www.nuget.org/packages/Codelux.Plugins/)
-
-[![Tests](https://github.com/Codeh4ck/Codelux/actions/workflows/ActionRunUnitTests.yml/badge.svg?branch=main)](https://github.com/Codeh4ck/Codelux/actions/workflows/ActionRunUnitTests.yml)
-
-[Click here for the old BitBucket repository](https://bitbucket.org/nickandreou/codelux.netcore/src/develop/) 
-
-# Codelux
+ # Codelux
 
 Codelux is a collection of tools that simplify and abstract processes such as dependency injection, caching, configuration, mapping etc. Codelux.ServiceStack includes various ServiceStack helper libraries that make OrmLite model mapping, dependency injection and bootstrapping simple, elegant and clean. Additionally, Codelux.Plugins provides a base  plugin framework for a pluggable architecture design.
+ 
+ [Click here for the old BitBucket repository](https://bitbucket.org/nickandreou/codelux.netcore/src/develop/) 
+ ### Package Information
+
+|       Tests     |
+|       -----     |
+| [![Tests](https://github.com/Codeh4ck/Codelux/actions/workflows/ActionRunUnitTests.yml/badge.svg?branch=main)](https://github.com/Codeh4ck/Codelux/actions/workflows/ActionRunUnitTests.yml) |
+
+| Package                       | NuGet                                                                                                                                                                                     |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Codelux**                   |       [![Codelux](https://img.shields.io/nuget/v/Codelux.svg?style=flat-square&label=Codelux)](https://www.nuget.org/packages/Codelux/)                                                   |
+| **Codelux.Common**            |       [![Codelux](https://img.shields.io/nuget/v/Codelux.Common.svg?style=flat-square&label=Codelux.Common)](https://www.nuget.org/packages/Codelux.Common/)                              |
+| **Codelux.ServiceStack**      |       [![Codelux](https://img.shields.io/nuget/v/Codelux.ServiceStack.svg?style=flat-square&label=Codelux.ServiceStack)](https://www.nuget.org/packages/Codelux.ServiceStack/)            |
+| **Codelux.Plugins**           |       [![Codelux](https://img.shields.io/nuget/v/Codelux.Plugins.svg?style=flat-square&label=Codelux.Plugins)](https://www.nuget.org/packages/Codelux.Plugins/)                           |
 
 # Installation
 
@@ -89,7 +97,7 @@ certain tasks trivial.
 
 ## How to use the OrmLiteMapping feature:
 
-1. Define your model like the example below:
+1. **Define your model like the example below:**
 ```csharp 
 public class ExampleModel
 {
@@ -100,7 +108,7 @@ public class ExampleModel
 }
 ```
 
-2. Create a new class that inherits OrmLiteMapping around your model's type as shown below:
+2. **Create a new class that inherits OrmLiteMapping around your model's type as shown below:**
 ```csharp
 public class ExampleModelMapping : OrmLiteMapping<ExampleModel>
 {
@@ -118,18 +126,117 @@ public class ExampleModelMapping : OrmLiteMapping<ExampleModel>
 ```
 
 Your mappings should be placed inside the constructor. The OrmLiteMappingFeature plugin will search the assembly for classes
-derived from OrmLiteMapping and will instantiate them. Therefore, all mapping are honored by OrmLite.
+derived from OrmLiteMapping and will instantiate them. Therefore, all mappings are honored by OrmLite.
 
 __Other mapping functions:__
 
 *```OrmLiteMapping.Ignore()``` - Ignores the given property and column  
 *```OrmLiteMapping.AutoIncrement()```- Maps a property to a column and marks it as auto increment
 
-3. Register OrmLiteMappingFeature plugin on your ServiceStack AppConfigurator:
+3. **Register OrmLiteMappingFeature plugin on your ServiceStack AppConfigurator:**
 
 ```csharp
 appHost.Plugins.Add(new OrmLiteMappingFeature());
 ```
+
+## How to use role-based requests feature:
+
+1. **Inherit `IHasRole` interface on your user model:**
+```csharp
+public class User : IHasRole
+{
+    public Guid Id { get; set; }
+    public string Username { get; set; }
+    public string Password { get; set; }
+    public string Email { get; set; }
+    public List<IRole> Roles { get; set; }
+}
+```
+
+`IHasRole` adds a property of type `List<IRole>` to your model. These would be the roles your user has.
+
+2. **Create roles by adding new classes that inherit `IRole`**:
+```csharp
+public class MemberRole : IRole
+{
+    public int Id { get; set; } = 0;
+    public int Level { get; set; } = 1;
+    public string Name { get; set; } = "Member";
+}
+
+public class ModeratorRole : IRole
+{
+    public int Id { get; set; } = 1;
+    public int Level { get; set; } = 2;
+    public string Name { get; set; } = "Moderator";
+}
+
+public class AdminRole : IRole
+{
+    public int Id { get; set; } = 2;
+    public int Level { get; set; } = 3;
+    public string Name { get; set; } = "Administrator";
+}
+```
+
+**Note: Make sure that when a role is higher, its level is also higher. An administrator has a higher level than a moderator in this example.**
+
+3. **Assign roles to your user by adding them to the `List<IRole>` collection:** 
+```csharp
+User user = await _someRepository.GetAUser(); // This is pseudocode
+use.Roles = new List<IRole>();
+user.Roles.Add(new MemberRole());
+user.Roles.Add(new ModeratorRole());
+```
+
+**You may also store a user's roles in a database table and load them accordingly.**
+
+4. **Inherit and implement `RoleValidatorBase`:**
+
+```csharp
+public class RoleValidator : RoleValidatorBase
+{
+    public override Task<IHasRole> GetModelAsync(object key, CancellationChangeToken token = null)
+    {
+        // Your code here that retrieves a user model based on "key"
+        // Key can be any data type, you may cast it as necessary
+    }
+}
+```
+
+* `GetModelAsync` is a method which returns a user model based on its primary key. Feel free to retrieve it from any data source, such as an MsSql database or a Redis cache.
+* You may cast `object key` to your own primary key data type.
+* Additionally, you can validate if the primary key type is correct.
+
+5. **Register your `RoleValidator` and the internal `ProtectedRouteCollection` to ServiceStack's IoC:**
+```csharp
+appHost.Container.RegisterAutoWiredAs<RoleValidator, IRoleValidator>();
+appHost.Container.RegisterAutoWiredAs<ProtectedRouteCollection, IProtectedRouteCollection>();
+```
+
+6. **Add `RoleBasedRequestsFeature` plugin to ServiceStack's plugins:**
+```csharp
+appHost.Plugins.Add(new RoleBasedRequestsFeature());
+```
+
+7. **Register protected routes on ServiceStack using the `AddProtectedRoute` extension method:**
+```csharp
+appHost.AddProtectedRoute<ExampleRequestModel>("/api/request", new ModeratorRole(), ApplyTo.Get);
+```
+
+You can additionally configure the error message and the status code on a failed request like so:
+
+```csharp
+appHost.ConfigurePlugin<RoleBasedRequestsFeature>(x =>
+{
+    x.UnauthorizedRequestErrorMessage = "Your custom error message";
+    x.UnauthorizedRequestStatusCode = HttpStatusCode.Forbidden;
+});
+```
+
+**Notes:**
+* `AddProtectedRoute` is an extension on `IAppHost`
+* The given role on `AddProtectedRoute` is the minimum required role to run the request. This means that a user with `ModeratorRole` or above, based on the role's level, will be able to run the request.
 
 ## Conclusion
 I wrote this library in my free time to simplify some tasks that were repeated. Feel free to use it as you please.  
