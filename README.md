@@ -184,7 +184,7 @@ public class AdminRole : IRole
 3. **Assign roles to your user by adding them to the `List<IRole>` collection:** 
 ```csharp
 User user = await _someRepository.GetAUser(); // This is pseudocode
-use.Roles = new List<IRole>();
+user.Roles = new List<IRole>();
 user.Roles.Add(new MemberRole());
 user.Roles.Add(new ModeratorRole());
 ```
@@ -219,11 +219,6 @@ appHost.Container.RegisterAutoWiredAs<ProtectedRouteCollection, IProtectedRouteC
 appHost.Plugins.Add(new RoleBasedRequestsFeature());
 ```
 
-7. **Register protected routes on ServiceStack using the `AddProtectedRoute` extension method:**
-```csharp
-appHost.AddProtectedRoute<ExampleRequestModel>("/api/request", new ModeratorRole(), ApplyTo.Get);
-```
-
 You can additionally configure the error message and the status code on a failed request like so:
 
 ```csharp
@@ -232,6 +227,11 @@ appHost.ConfigurePlugin<RoleBasedRequestsFeature>(x =>
     x.UnauthorizedRequestErrorMessage = "Your custom error message";
     x.UnauthorizedRequestStatusCode = HttpStatusCode.Forbidden;
 });
+```
+
+7. **Register protected routes on ServiceStack using the `AddProtectedRoute` extension method:**
+```csharp
+appHost.AddProtectedRoute<ExampleRequestModel>("/api/request", new ModeratorRole(), ApplyTo.Get);
 ```
 
 **Notes:**
