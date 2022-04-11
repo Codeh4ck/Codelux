@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using ServiceStack;
 using System.Linq;
 using System.Reflection;
-using ServiceStack;
+using System.Collections.Generic;
+using Codelux.ServiceStack.OrmLite;
 
-namespace Codelux.ServiceStack.OrmLite
+namespace Codelux.ServiceStack.Plugins
 {
     public class OrmLiteMappingFeature : IPlugin
     {
