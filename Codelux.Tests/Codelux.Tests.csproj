@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Codelux.Common\Codelux.Common.csproj" />
     <ProjectReference Include="..\Codelux.Plugins\Codelux.Plugins.csproj" />
+    <ProjectReference Include="..\Codelux.ServiceStack\Codelux.ServiceStack.csproj" />
     <ProjectReference Include="..\Codelux\Codelux.csproj" />
   </ItemGroup>
 
