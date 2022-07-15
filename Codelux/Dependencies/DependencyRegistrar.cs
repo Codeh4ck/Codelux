@@ -24,6 +24,8 @@ namespace Codelux.Dependencies
                 foreach (Type type in types)
                 {
                     IDependencyModule instance = (IDependencyModule)Activator.CreateInstance(type, this);
+                    if (instance == null) continue;
+
                     instance.OnRegisterDependencies(this);
                 }
             }
