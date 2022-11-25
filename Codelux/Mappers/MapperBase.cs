@@ -8,11 +8,15 @@ namespace Codelux.Mappers
 
         public IEnumerable<TOut> Map(IEnumerable<TIn> models)
         {
-            foreach (TIn model in models)
+            List<TOut> mappedModels = new();
+
+            foreach(TIn model in models)
             {
                 if (model == null) continue;
-                yield return Map(model);
+                mappedModels.Add(Map(model));
             }
+
+            return mappedModels;
         }
     }
 }
