@@ -5,13 +5,12 @@ namespace Codelux.Configuration
 {
     public class CatConfigSource : ConfigSourceBase
     {
-        private readonly ConfigCatClient _client;
+        private readonly IConfigCatClient _client;
 
         public CatConfigSource(string apiKey)
         {
             if (string.IsNullOrEmpty(apiKey)) throw new ArgumentNullException(nameof(apiKey));
-
-            _client = new(apiKey);
+            _client = ConfigCatClient.Get(apiKey);
         }
 
         public override bool TryGetString(string key, out string value)
