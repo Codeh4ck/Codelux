@@ -10,7 +10,6 @@ namespace Codelux.ServiceStack.Plugins
 {
     public class RoleBasedRequestsFeature : IPlugin
     {
-
         private IRoleValidator _roleValidator;
         private IProtectedRouteCollection _protectedRouteCollection;
 
@@ -24,19 +23,14 @@ namespace Codelux.ServiceStack.Plugins
 
             IRoleValidator roleValidator = container.Resolve<IRoleValidator>();
 
-            if (roleValidator == null)
-                throw new NotImplementedException("Role validator is not registered in the IoC");
-
-            _roleValidator = roleValidator;
+            _roleValidator = roleValidator ?? throw new NotImplementedException("Role validator is not registered in the IoC");
 
             if (_protectedRouteCollection == null)
             {
                 IProtectedRouteCollection protectedRouteCollection = container.Resolve<IProtectedRouteCollection>();
 
-                if (protectedRouteCollection == null)
-                    throw new NotImplementedException("Protected request container is not registered in the IoC");
-
-                _protectedRouteCollection = protectedRouteCollection;
+                _protectedRouteCollection = protectedRouteCollection ?? 
+                                            throw new NotImplementedException("Protected request container is not registered in the IoC");
             }
 
             appHost.GlobalRequestFiltersAsync.Add(async (request, response, dto) =>

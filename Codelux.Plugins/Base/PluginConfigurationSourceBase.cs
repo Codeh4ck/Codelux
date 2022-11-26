@@ -31,14 +31,8 @@ namespace Codelux.Plugins.Base
         public abstract List<PluginConfiguration> ReadConfiguration(bool readFromSource = true);
         public abstract void WriteConfiguration();
 
-        public bool TryAddConfiguration(PluginConfiguration configuration)
-        {
-            return PluginConfigurations.TryAdd(configuration.PluginType, configuration);
-        }
+        public bool TryAddConfiguration(PluginConfiguration configuration) => PluginConfigurations.TryAdd(configuration.PluginType, configuration);
 
-        public bool RemoveConfiguration(Type type)
-        {
-            return PluginConfigurations.Remove(type);
-        }
+        public bool RemoveConfiguration(Type type) => PluginConfigurations.Remove(type);
     }
 }

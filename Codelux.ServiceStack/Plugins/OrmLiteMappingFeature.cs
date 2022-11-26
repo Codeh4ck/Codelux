@@ -20,12 +20,13 @@ namespace Codelux.ServiceStack.Plugins
                 {
                     List<Type> typeList = assembly.GetTypes().Where(type =>
                         type != baseType && !type.IsAbstract && baseType.IsAssignableFrom(type)).ToList();
+
                     foreach (Type type in typeList)
                         Activator.CreateInstance(type);
                 }
                 catch
                 {
-
+                    // ignored
                 }
             }
         }

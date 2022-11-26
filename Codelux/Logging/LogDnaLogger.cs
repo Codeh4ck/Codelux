@@ -19,8 +19,7 @@ namespace Codelux.Logging
 
             _apiClient = configManager.Initialise();
         }
-
-
+        
         public void LogEvent(LogType logType, string message)
         {
             _apiClient.Connect();

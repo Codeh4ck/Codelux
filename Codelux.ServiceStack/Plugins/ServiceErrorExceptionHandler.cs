@@ -36,13 +36,13 @@ namespace Codelux.ServiceStack.Plugins
             if (exception is NotImplementedException)
             {
                 httpReq.Response.StatusCode = (int)HttpStatusCode.NotImplemented;
-                return new ServiceErrorResponse(_serviceName, ServiceCodes.INTERNAL_SERVER_ERROR, "Not Implemented");
+                return new ServiceErrorResponse(_serviceName, ServiceCodes.InternalServerError, "Not Implemented");
             }
 
             if (exception is TaskCanceledException)
             {
                 httpReq.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                return new ServiceErrorResponse(_serviceName, ServiceCodes.INTERNAL_SERVER_ERROR, OverridenExceptionMessages.TaskCanceledExceptionMessage);
+                return new ServiceErrorResponse(_serviceName, ServiceCodes.InternalServerError, OverridenExceptionMessages.TaskCanceledExceptionMessage);
             }
 
             if (exception is ValidationError validationError)
@@ -59,7 +59,7 @@ namespace Codelux.ServiceStack.Plugins
             }
 
             httpReq.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            return new ServiceErrorResponse(_serviceName, ServiceCodes.INTERNAL_SERVER_ERROR, exception.Message);
+            return new ServiceErrorResponse(_serviceName, ServiceCodes.InternalServerError, exception.Message);
         }
     }
 }

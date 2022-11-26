@@ -20,9 +20,7 @@ namespace Codelux.Common.Models
         }
 
         public int Index { get; }
-
         public string Service { get; }
-
         public HttpStatusCode StatusCode { get; }
     }
 }

@@ -3,7 +3,7 @@
 namespace Codelux.Paging
 {
 
-    public interface IPagedList<T> : IPagedList, IEnumerable<T>
+    public interface IPagedList<out T> : IPagedList, IEnumerable<T>
     {
         T this[int index] { get; }
         int Count { get; }

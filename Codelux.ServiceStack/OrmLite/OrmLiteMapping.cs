@@ -26,14 +26,8 @@ namespace Codelux.ServiceStack.OrmLite
             info.AddAttributes(new AliasAttribute(columnName));
         }
 
-        protected void MapToTable(string tableName)
-        {
-            typeof(TEntity).AddAttributes(new AliasAttribute(tableName));
-        }
+        protected void MapToTable(string tableName) => typeof(TEntity).AddAttributes(new AliasAttribute(tableName));
 
-        protected void MapToSchema(string schema)
-        {
-            typeof(TEntity).AddAttributes(new SchemaAttribute(schema));
-        }
+        protected void MapToSchema(string schema) => typeof(TEntity).AddAttributes(new SchemaAttribute(schema));
     }
 }

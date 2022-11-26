@@ -6,20 +6,11 @@ namespace Codelux.Common.Models
     {
         public string ConfigurationName { get; }
 
-        public MissingConfigurationException(string configurationName)
-        {
-            ConfigurationName = configurationName;
-        }
+        public MissingConfigurationException(string configurationName) => ConfigurationName = configurationName;
 
-        public MissingConfigurationException(string configurationName, string message) : base(message)
-        {
-            ConfigurationName = configurationName;
-        }
+        public MissingConfigurationException(string configurationName, string message) : base(message) => ConfigurationName = configurationName;
 
         public MissingConfigurationException(string configurationName, string message, Exception innerException) 
-            : base(message, innerException)
-        {
-            ConfigurationName = configurationName;
-        }
+            : base(message, innerException) => ConfigurationName = configurationName;
     }
 }

@@ -6,17 +6,13 @@ namespace Codelux.Paging
 {
     public static class PagedListExtensions
     {
-		public static IPagedList<T> ToPagedList<T>(this IEnumerable<T> superset, int pageNumber, int pageSize)
-		{
-			return new PagedList<T>(superset, pageNumber, pageSize);
-		}
+		public static IPagedList<T> ToPagedList<T>(this IEnumerable<T> superset, int pageNumber, int pageSize) 
+            => new PagedList<T>(superset, pageNumber, pageSize);
 
-		public static IPagedList<T> ToPagedList<T>(this IQueryable<T> superset, int pageNumber, int pageSize)
-		{
-			return new PagedList<T>(superset, pageNumber, pageSize);
-		}
+        public static IPagedList<T> ToPagedList<T>(this IQueryable<T> superset, int pageNumber, int pageSize) 
+            => new PagedList<T>(superset, pageNumber, pageSize);
 
-		public static IEnumerable<IEnumerable<T>> Split<T>(this IEnumerable<T> superset, int numberOfPages)
+        public static IEnumerable<IEnumerable<T>> Split<T>(this IEnumerable<T> superset, int numberOfPages)
 		{
 			return superset
 				.Select((item, index) => new { index, item })

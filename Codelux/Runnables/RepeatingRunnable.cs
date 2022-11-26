@@ -7,19 +7,10 @@ namespace Codelux.Runnables
     {
         private readonly Timer _timer;
 
-        protected RepeatingRunnable(TimeSpan beginAfter, TimeSpan repeatEvery)
-        {
-            _timer = new(Callback, null, beginAfter, repeatEvery);
-        }
+        protected RepeatingRunnable(TimeSpan beginAfter, TimeSpan repeatEvery) => _timer = new(Callback, null, beginAfter, repeatEvery);
 
-        protected RepeatingRunnable(TimeSpan repeatEvery)
-        {
-            _timer = new(Callback, null, repeatEvery, repeatEvery);
-        }
+        protected RepeatingRunnable(TimeSpan repeatEvery) => _timer = new(Callback, null, repeatEvery, repeatEvery);
 
-        private void Callback(object state)
-        {
-            Start();
-        }
+        private void Callback(object state) => Start();
     }
 }

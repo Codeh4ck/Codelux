@@ -33,6 +33,7 @@ namespace Codelux.Common.Extensions
 
             return exceptionMessages;
         }
+
         public static List<Exception> GetAllInnerExceptions(this Exception exception)
         {
             if (exception.InnerException == null) return null;

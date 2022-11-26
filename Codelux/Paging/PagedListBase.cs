@@ -39,19 +39,10 @@ namespace Codelux.Paging
                 : numberOfLastItemOnPage) - 1;
         }
 
-        public IPagedList GetPageHeader()
-        {
-            return new PageHeader(this);
-        }
+        public IPagedList GetPageHeader() => new PageHeader(this);
 
-		public IEnumerator<T> GetEnumerator()
-        {
-            return SubsetList.GetEnumerator();
-        }
+        public IEnumerator<T> GetEnumerator() => SubsetList.GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return SubsetList.GetEnumerator();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => SubsetList.GetEnumerator();
     }
 }

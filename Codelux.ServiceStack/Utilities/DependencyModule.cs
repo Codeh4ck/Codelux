@@ -6,10 +6,7 @@ namespace Codelux.ServiceStack.Utilities
     {
         public virtual ServiceStackHost AppHost { get; }
 
-        protected DependencyModuleBase(ServiceStackHost appHost)
-        {
-            AppHost = appHost;
-        }
+        protected DependencyModuleBase(ServiceStackHost appHost) => AppHost = appHost;
 
         public virtual void Dispose() { }
         public abstract void RegisterDependencies();

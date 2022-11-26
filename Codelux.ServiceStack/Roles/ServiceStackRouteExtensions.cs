@@ -20,10 +20,8 @@ namespace Codelux.ServiceStack.Roles
             appHost.Routes.Add<TRequest>(restPath, verbs);
         }
 
-        public static void AddProtectedRoute<TRequest>(this IAppHost appHost, string restPath, IRole minimumRole, ApplyTo verbs)
-        {
-            appHost.AddProtectedRoute<TRequest>(restPath, minimumRole, verbs.ToVerbsString());
-        }
+        public static void AddProtectedRoute<TRequest>(this IAppHost appHost, string restPath, IRole minimumRole, ApplyTo verbs) 
+            => appHost.AddProtectedRoute<TRequest>(restPath, minimumRole, verbs.ToVerbsString());
 
         private static string ToVerbsString(this ApplyTo verbs)
         {

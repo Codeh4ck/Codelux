@@ -46,20 +46,11 @@ namespace Codelux.Plugins
             await Task.WhenAll(processTasks).ConfigureAwait(false);
         }
 
-        public List<PluginConfiguration> GetPluginConfigurations()
-        {
-            return _pluginConfigurations;
-        }
+        public List<PluginConfiguration> GetPluginConfigurations() => _pluginConfigurations;
 
-        public List<TPlugin> GetRunningPlugins()
-        {
-            return _plugins.Values.Where(plugin => plugin.IsRunning).ToList();
-        }
+        public List<TPlugin> GetRunningPlugins() => _plugins.Values.Where(plugin => plugin.IsRunning).ToList();
 
-        public List<TPlugin> GetLoadedPlugins()
-        {
-            return _plugins.Values.ToList();
-        }
+        public List<TPlugin> GetLoadedPlugins() => _plugins.Values.ToList();
 
         public void UnloadPlugin(Guid pluginId)
         {

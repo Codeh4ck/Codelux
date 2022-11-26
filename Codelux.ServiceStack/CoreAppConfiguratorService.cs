@@ -11,9 +11,8 @@ namespace Codelux.ServiceStack
         protected CoreAppConfiguratorBase(string serviceName, ServiceStackHost appHost)
         {
             if (appHost == null) throw new ArgumentNullException(nameof(appHost));
-            if (serviceName == null) throw new ArgumentNullException(nameof(serviceName));
 
-            _serviceName = serviceName;
+            _serviceName = serviceName ?? throw new ArgumentNullException(nameof(serviceName));
 
             appHost.Plugins.Add(new CoreServiceFeature());
             appHost.ServiceExceptionHandlers.Add(new ServiceErrorExceptionHandler(serviceName).Handle);

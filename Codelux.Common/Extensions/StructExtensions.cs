@@ -4,10 +4,7 @@ namespace Codelux.Common.Extensions
 {
     public static class StructExtensions
     {
-        public static object Box<T>(this T value) where T : struct
-        {
-            return value;
-        }
+        public static object Box<T>(this T value) where T : struct => value;
 
         public static T Unbox<T>(this object value) where T : struct
         {
