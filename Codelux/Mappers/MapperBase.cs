@@ -2,7 +2,7 @@
 
 namespace Codelux.Mappers
 {
-    public abstract class MapperBase<TIn, TOut> : IMapper<TIn, TOut>
+    public abstract class MapperBase<TIn, TOut> : ISyncMapper<TIn, TOut>
     {
         public abstract TOut Map(TIn model);
 
