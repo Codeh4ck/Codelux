@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Codelux.Mappers;
 using NUnit.Framework;
@@ -57,8 +58,8 @@ namespace Codelux.Tests.Mappers
                 },
             };
 
-            var result = await _testMapper.MapAsync(inputModels).ConfigureAwait(false);
-            List<TestMapperOutputModel> outputModels = result.ToList();
+            IAsyncEnumerable<TestMapperOutputModel> result = _testMapper.MapAsync(inputModels);
+            List<TestMapperOutputModel> outputModels = await result.ToListAsync();
 
             for (int x = 0; x < outputModels.Count; x++)
             {
@@ -72,15 +73,15 @@ namespace Codelux.Tests.Mappers
 
     class AsyncTestMapper : AsyncMapperBase<TestMapperInputModel, TestMapperOutputModel>
     {
-        public override TestMapperOutputModel Map(TestMapperInputModel model)
+        public override Task<TestMapperOutputModel> MapAsync(TestMapperInputModel model, CancellationToken token = default)
         {
-            return new()
+            return Task.FromResult(new TestMapperOutputModel()
             {
                 BoolValue = true,
                 GuidValue = Guid.NewGuid(),
                 IntegerValue = model.IntegerValue,
                 StringValue = model.StringValue
-            };
+            });
         }
     }
 }
