@@ -11,7 +11,7 @@ namespace Codelux.ServiceStack.Roles
         {
             if (model.Roles == null || model.Roles.Count == 0) return false;
 
-            IRole highestRole = model.Roles.OrderByDescending(x => x.Level).FirstOrDefault();
+            IRole highestRole = model.Roles.MaxBy(x => x.Level);
             if (highestRole == null) return false;
 
             return highestRole.Level >= roleLevel;
