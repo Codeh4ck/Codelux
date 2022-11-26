@@ -35,11 +35,15 @@ namespace Codelux.Http
             string authUrl =
                 $"Id={nonAuthRequest.Id:N}&CallerRequestId={nonAuthRequest.CallerRequestId:N}";
 
-            string url = request.RequestUri.ToString();
-            if (url.Contains('?')) url += "&" + authUrl;
-            else url += "?" + authUrl;
+            if (request.RequestUri != null)
+            {
+                string url = request.RequestUri.ToString();
+                if (url.Contains('?')) url += "&" + authUrl;
+                else url += "?" + authUrl;
 
-            request.RequestUri = new(url);
+                request.RequestUri = new(url);
+            }
+            else throw new Exception($"{nameof(request)} param RequestUri property is not set.");
 
             return await _client.SendAsync(request, cancellationToken).ConfigureAwait(false);
         }
@@ -53,11 +57,16 @@ namespace Codelux.Http
                 $"Id={authRequest.Id:N}&UserId={authRequest.UserId:N}&CallerRequestId={authRequest.CallerRequestId:N}" +
                 $"&Email={authRequest.Email}&Username={authRequest.Username}";
 
-            string url = request.RequestUri.ToString();
-            if (url.Contains('?')) url += "&" + authUrl;
-            else url += "?" + authUrl;
+            if (request.RequestUri != null)
+            {
+                string url = request.RequestUri.ToString();
+                if (url.Contains('?')) url += "&" + authUrl;
+                else url += "?" + authUrl;
 
-            request.RequestUri = new(url);
+                request.RequestUri = new(url);
+            }
+            else throw new Exception($"{nameof(request)} param RequestUri property is not set.");
+
 
             return await _client.SendAsync(request, cancellationToken).ConfigureAwait(false);
         }
@@ -105,40 +114,40 @@ namespace Codelux.Http
         {
             string content = await EnsureSuccessfulResponse(response, throwsOnNotFound).ConfigureAwait(false);
             if (content == null && !throwsOnNotFound) return default;
+
             return JsonConvert.DeserializeObject<T>(content, Settings);
         }
 
         protected async Task<string> EnsureSuccessfulResponse(HttpResponseMessage response,
             bool throwsOnNotFound = true)
         {
-            string content = string.Empty;
-            if (response.Content != null)
-            {
-                content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-            }
+            string content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
             if (response.IsSuccessStatusCode) return content;
 
-            if (response.StatusCode == HttpStatusCode.BadRequest)
+            switch (response.StatusCode)
             {
-                var error = JsonConvert.DeserializeObject<ServiceValidationResponse>(content, Settings);
-                throw new ServiceErrorException(
-                    _serviceName, error.Code,
-                    response.StatusCode,
-                    error.ValidationErrors == null
-                        ? null
-                        : string.Join(",", error.ValidationErrors.Select(x => string.Join(":", x.Field, x.Message)))
-                );
-            }
-            else if (response.StatusCode == HttpStatusCode.NotFound && !throwsOnNotFound) return null;
-            else
-            {
-                var error = JsonConvert.DeserializeObject<ServiceErrorResponse>(content, Settings);
-                throw new ServiceErrorException(
-                    _serviceName,
-                    error.Code,
-                    response.StatusCode,
-                    error.Error);
+                case HttpStatusCode.BadRequest:
+                {
+                    ServiceValidationResponse error = JsonConvert.DeserializeObject<ServiceValidationResponse>(content, Settings);
+
+                    throw new ServiceErrorException(
+                        _serviceName, error.Code,
+                        response.StatusCode,
+                        error.ValidationErrors == null
+                            ? null
+                            : string.Join(",", error.ValidationErrors.Select(x => string.Join(":", x.Field, x.Message)))
+                    );
+                }
+
+                case HttpStatusCode.NotFound when !throwsOnNotFound:
+                    return null;
+
+                default:
+                {
+                    ServiceErrorResponse error = JsonConvert.DeserializeObject<ServiceErrorResponse>(content, Settings);
+                    throw new ServiceErrorException(_serviceName, error.Code, response.StatusCode, error.Error);
+                }
             }
         }
     }
