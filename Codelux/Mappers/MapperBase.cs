@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Codelux.Mappers
 {
@@ -6,13 +7,6 @@ namespace Codelux.Mappers
     {
         public abstract TOut Map(TIn model);
 
-        public IEnumerable<TOut> Map(IEnumerable<TIn> models)
-        {
-            foreach (TIn model in models)
-            {
-                if (model == null) continue;
-                yield return Map(model);
-            }
-        }
+        public IEnumerable<TOut> Map(IEnumerable<TIn> models) => from model in models where model != null select Map(model);
     }
 }
