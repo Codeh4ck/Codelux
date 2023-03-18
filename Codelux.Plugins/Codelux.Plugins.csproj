@@ -8,7 +8,7 @@
     <Authors>Nikolas Andreou</Authors>
     <Company>Nikolas Andreou</Company>
     <Description>Codelux.Plugins is a minimal, agnostic and simple plugin framework that can also manage plugin configurations.</Description>
-    <Copyright>Copyright ©2021-2022 Nikolas Andreou. All rights reserved.</Copyright>
+    <Copyright>Copyright ©2021-2023 Nikolas Andreou. All rights reserved.</Copyright>
     <PackageProjectUrl>https://github.com/Codeh4ck/Codelux</PackageProjectUrl>
     <PackageIcon>myAvatar.png</PackageIcon>
     <RepositoryUrl>https://github.com/Codeh4ck/Codelux</RepositoryUrl>

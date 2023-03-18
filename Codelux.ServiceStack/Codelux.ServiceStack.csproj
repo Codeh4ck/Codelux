@@ -5,7 +5,7 @@
     <Version>1.2.7</Version>
     <Authors>Nikolas Andreou</Authors>
     <Description>Codelux.ServiceStack is a collection of ServiceStack extensions. It includes elegant OrmLite model mapping tools, bootstrapping plugins and modular dependency injection base code.</Description>
-    <Copyright>Copyright ©2021-2022 Nikolas Andreou. All rights reserved.</Copyright>
+    <Copyright>Copyright ©2021-2023 Nikolas Andreou. All rights reserved.</Copyright>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Codeh4ck/Codelux</PackageProjectUrl>
     <PackageIcon>myAvatar.png</PackageIcon>

@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Authors>Nikolas Andreou</Authors>
     <Description>Codelux is a collection of tools that simplify and abstract processes such as dependency injection, caching, configuration, mapping etc. Codelux.ServiceStack includes various ServiceStack helper libraries that make OrmLite model mapping, dependency injection and bootstrapping simple, elegant and clean. Additionally, Codelux.Plugins provides a base  plugin framework for a pluggable architecture design.</Description>
-    <Copyright>Copyright ©2021-2022 Nikolas Andreou. All rights reserved.</Copyright>
+    <Copyright>Copyright ©2021-2023 Nikolas Andreou. All rights reserved.</Copyright>
     <PackageProjectUrl>https://github.com/Codeh4ck/Codelux</PackageProjectUrl>
     <PackageIcon>myAvatar.png</PackageIcon>
     <RepositoryUrl>https://github.com/Codeh4ck/Codelux</RepositoryUrl>
