@@ -6,7 +6,7 @@
     <Description>Codelux is a collection of tools that simplify and abstract processes such as dependency injection, caching, configuration, mapping etc. Codelux.ServiceStack includes various ServiceStack helper libraries that make OrmLite model mapping, dependency injection and bootstrapping simple, elegant and clean. Additionally, Codelux.Plugins provides a base  plugin framework for a pluggable architecture design.</Description>
     <Copyright>Copyright ©2021-2023 Nikolas Andreou. All rights reserved.</Copyright>
     <PackageProjectUrl>https://github.com/Codeh4ck/Codelux</PackageProjectUrl>
-    <PackageIcon>myAvatar.png</PackageIcon>
+    <PackageIcon>NuGet-Avatar.png</PackageIcon>
     <RepositoryUrl>https://github.com/Codeh4ck/Codelux</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
@@ -19,6 +19,7 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <FileVersion>1.2.7</FileVersion>
     <Title>Codelux</Title>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,9 +35,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\Users\Delirium\Pictures\myAvatar.png">
+    <None Include="..\NuGet-Avatar.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
 

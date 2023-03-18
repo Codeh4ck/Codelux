@@ -9,7 +9,7 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <Copyright>Copyright ©2021-2023 Nikolas Andreou. All rights reserved.</Copyright>
     <PackageProjectUrl>https://github.com/Codeh4ck/Codelux</PackageProjectUrl>
-    <PackageIcon>myAvatar.png</PackageIcon>
+    <PackageIcon>NuGet-Avatar.png</PackageIcon>
     <RepositoryUrl>https://github.com/Codeh4ck/Codelux</RepositoryUrl>
     <PackageReleaseNotes></PackageReleaseNotes>
     <RepositoryType>Git</RepositoryType>
@@ -20,12 +20,17 @@
     <FileVersion>1.2.7</FileVersion>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Title>Codelux.Common</Title>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\Users\Delirium\Pictures\myAvatar.png">
+    <None Include="..\NuGet-Avatar.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
 
