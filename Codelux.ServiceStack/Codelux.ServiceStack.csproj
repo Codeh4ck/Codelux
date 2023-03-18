@@ -2,22 +2,23 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Version>1.2.6</Version>
+    <Version>1.2.7</Version>
     <Authors>Nikolas Andreou</Authors>
     <Description>Codelux.ServiceStack is a collection of ServiceStack extensions. It includes elegant OrmLite model mapping tools, bootstrapping plugins and modular dependency injection base code.</Description>
-    <Copyright>Copyright ©2021-2022 Nikolas Andreou. All rights reserved.</Copyright>
+    <Copyright>Copyright ©2021-2023 Nikolas Andreou. All rights reserved.</Copyright>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Codeh4ck/Codelux</PackageProjectUrl>
-    <PackageIcon>myAvatar.png</PackageIcon>
+    <PackageIcon>NuGet-Avatar.png</PackageIcon>
     <RepositoryUrl>https://github.com/Codeh4ck/Codelux</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <AssemblyVersion>1.2.6</AssemblyVersion>
-    <FileVersion>1.2.6</FileVersion>
+    <AssemblyVersion>1.2.7</AssemblyVersion>
+    <FileVersion>1.2.7</FileVersion>
     <PackageIconUrl />
     <PackageTags>dependency injection, password encryption, servicestack, helper, helpers, cache, caching, encryption, hashing, hash, encrypt, dependency, injection, DI, plugin, plugins</PackageTags>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Title>Codelux.ServiceStack</Title>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,14 +26,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\Users\Delirium\Pictures\myAvatar.png">
+    <None Include="..\NuGet-Avatar.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ServiceStack" Version="6.5.0" />
+    <PackageReference Include="ServiceStack" Version="6.7.0" />
   </ItemGroup>
 
 </Project>
