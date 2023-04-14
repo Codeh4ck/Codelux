@@ -76,11 +76,11 @@ namespace Codelux.Cache
             return true;
         }
 
-        public override void OnStart(object context = null)
+        protected override void OnStart(object context = null)
         {
             EvictExpired();
         }
 
-        public override void OnStop() { }
+        protected override void OnStop() { }
     }
 }

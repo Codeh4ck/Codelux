@@ -15,7 +15,7 @@ namespace Codelux.ServiceStack.Roles
             roleValidator.Guard(nameof(roleValidator));
             _roleValidator = roleValidator;
 
-            _protectedRoutes = new ConcurrentDictionary<Type, IRole>();
+            _protectedRoutes = new();
         } 
 
         public bool AddProtectedRoute(Type requestType, IRole role) => _protectedRoutes.TryAdd(requestType, role);

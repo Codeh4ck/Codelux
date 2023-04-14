@@ -5,16 +5,16 @@ Codelux is a collection of tools that simplify and abstract processes such as de
  [Click here for the old BitBucket repository](https://bitbucket.org/nickandreou/codelux.netcore/src/develop/) 
  ### Package Information
 
-|       Tests     |
-|       -----     |
+| Tests                                                                                                                                                                                        |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [![Tests](https://github.com/Codeh4ck/Codelux/actions/workflows/ActionRunUnitTests.yml/badge.svg?branch=main)](https://github.com/Codeh4ck/Codelux/actions/workflows/ActionRunUnitTests.yml) |
 
-| Package                       | NuGet                                                                                                                                                                                     |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Codelux**                   |       [![Codelux](https://img.shields.io/nuget/v/Codelux.svg?style=flat-square&label=Codelux)](https://www.nuget.org/packages/Codelux/)                                                   |
-| **Codelux.Common**            |       [![Codelux](https://img.shields.io/nuget/v/Codelux.Common.svg?style=flat-square&label=Codelux.Common)](https://www.nuget.org/packages/Codelux.Common/)                              |
-| **Codelux.ServiceStack**      |       [![Codelux](https://img.shields.io/nuget/v/Codelux.ServiceStack.svg?style=flat-square&label=Codelux.ServiceStack)](https://www.nuget.org/packages/Codelux.ServiceStack/)            |
-| **Codelux.Plugins**           |       [![Codelux](https://img.shields.io/nuget/v/Codelux.Plugins.svg?style=flat-square&label=Codelux.Plugins)](https://www.nuget.org/packages/Codelux.Plugins/)                           |
+| Package                  | NuGet                                                                                                                                                                    |
+|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Codelux**              | [![Codelux](https://img.shields.io/nuget/v/Codelux.svg?style=flat-square&label=Codelux)](https://www.nuget.org/packages/Codelux/)                                        |
+| **Codelux.Common**       | [![Codelux](https://img.shields.io/nuget/v/Codelux.Common.svg?style=flat-square&label=Codelux.Common)](https://www.nuget.org/packages/Codelux.Common/)                   |
+| **Codelux.ServiceStack** | [![Codelux](https://img.shields.io/nuget/v/Codelux.ServiceStack.svg?style=flat-square&label=Codelux.ServiceStack)](https://www.nuget.org/packages/Codelux.ServiceStack/) |
+| **Codelux.Plugins**      | [![Codelux](https://img.shields.io/nuget/v/Codelux.Plugins.svg?style=flat-square&label=Codelux.Plugins)](https://www.nuget.org/packages/Codelux.Plugins/)                |
 
 # Installation
 

@@ -8,7 +8,7 @@ namespace Codelux.Tests.Plugins
         [Test]
         public void GivenPluginImplementationWhenIStartPluginThenPluginStarts()
         {
-            TestablePlugin plugin = new TestablePlugin();
+            TestablePlugin plugin = new();
             plugin.Configure(TestablePlugin.GetConfiguration());
 
             plugin.Start();
@@ -18,7 +18,7 @@ namespace Codelux.Tests.Plugins
         [Test]
         public void GivenPluginImplementationAndIsRunningWhenIStopPluginThenPluginStops()
         {
-            TestablePlugin plugin = new TestablePlugin();
+            TestablePlugin plugin = new();
             plugin.Configure(TestablePlugin.GetConfiguration());
 
             plugin.Start();

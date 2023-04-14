@@ -9,6 +9,7 @@ namespace Codelux.ServiceStack.Roles
     {
         public bool HasRole(IHasRole model, int roleLevel)
         {
+            if (model == null) return false;
             if (model.Roles == null || model.Roles.Count == 0) return false;
 
             IRole highestRole = model.Roles.MaxBy(x => x.Level);
