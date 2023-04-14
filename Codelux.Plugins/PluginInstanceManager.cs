@@ -63,7 +63,7 @@ namespace Codelux.Plugins
 
         public override void OnStart(object context = null)
         {
-            _plugins = new Dictionary<Guid, TPlugin>();
+            _plugins = new();
 
             foreach (PluginConfiguration config in _pluginConfigurations)
             {

@@ -16,7 +16,7 @@ namespace Codelux.Tests.Roles
         [SetUp]
         public void Setup()
         {
-            _testRoleValidator = new TestRoleValidator();
+            _testRoleValidator = new();
         }
 
         [Test]
@@ -109,7 +109,7 @@ namespace Codelux.Tests.Roles
             {
                 Id = TestUserId,
                 Username = "TestUser",
-                Roles = new List<IRole>()
+                Roles = new()
                 {
                     new MemberRole(),
                     new ModeratorRole()

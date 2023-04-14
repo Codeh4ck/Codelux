@@ -2,6 +2,7 @@
 using ServiceStack;
 using System.Collections.Generic;
 using Codelux.Common.Models;
+using ServiceStack.Web;
 
 namespace Codelux.ServiceStack.Roles
 {
@@ -25,7 +26,7 @@ namespace Codelux.ServiceStack.Roles
 
         private static string ToVerbsString(this ApplyTo verbs)
         {
-            List<string> allowedMethods = new List<string>();
+            List<string> allowedMethods = new();
 
             foreach (var entry in ApplyToUtils.ApplyToVerbs)
             {

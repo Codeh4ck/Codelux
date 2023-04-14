@@ -40,9 +40,9 @@ namespace Codelux.Tests.Plugins
 
         public static PluginConfiguration GetConfiguration()
         {
-            return new PluginConfiguration()
+            return new()
             {
-                Header = new PluginHeader()
+                Header = new()
                 {
                     Name = "Testable Plugin",
                     Id = Guid.Parse("4d96f32f-6aa2-4441-aca4-2baefad23cd5"),
@@ -83,9 +83,9 @@ namespace Codelux.Tests.Plugins
 
         public static PluginConfiguration GetConfiguration()
         {
-            return new PluginConfiguration()
+            return new()
             {
-                Header = new PluginHeader()
+                Header = new()
                 {
                     Name = "Second Testable Plugin",
                     Id = Guid.Parse("2427ae5b-2e42-46ae-815c-61fd18fd78b7"),

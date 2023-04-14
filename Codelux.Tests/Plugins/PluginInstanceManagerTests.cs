@@ -20,10 +20,10 @@ namespace Codelux.Tests.Plugins
         [SetUp]
         public void Setup()
         {
-            _configSourceMock = new Mock<IPluginConfigurationSource>();
-            _instanceFactoryMock = new Mock<ITypeInstanceFactory>();
+            _configSourceMock = new();
+            _instanceFactoryMock = new();
 
-            List<PluginConfiguration> pluginConfig = new List<PluginConfiguration>()
+            List<PluginConfiguration> pluginConfig = new()
             {
                 TestablePlugin.GetConfiguration(),
                 SecondTestablePlugin.GetConfiguration()
@@ -38,7 +38,7 @@ namespace Codelux.Tests.Plugins
                 .Returns(new SecondTestablePlugin());
 
             _testablePluginManager =
-                new PluginInstanceManager<TestablePluginBase>(_configSourceMock.Object, _instanceFactoryMock.Object);
+                new(_configSourceMock.Object, _instanceFactoryMock.Object);
         }
 
         [Test]
@@ -58,7 +58,7 @@ namespace Codelux.Tests.Plugins
         [Test]
         public void GivenPluginInstanceManagerWhenIInstantiateThenConfigurationIsLoaded()
         {
-            List<PluginConfiguration> pluginConfig = new List<PluginConfiguration>()
+            List<PluginConfiguration> pluginConfig = new()
             {
                 TestablePlugin.GetConfiguration()
             };
@@ -73,7 +73,7 @@ namespace Codelux.Tests.Plugins
         [Test]
         public void GivenPluginInstanceManagerWhenIInstantiateThenConfigurationIsLoadedAndIsStored()
         {
-            List<PluginConfiguration> pluginConfig = new List<PluginConfiguration>()
+            List<PluginConfiguration> pluginConfig = new()
             {
                 TestablePlugin.GetConfiguration()
             };
@@ -81,7 +81,7 @@ namespace Codelux.Tests.Plugins
             _configSourceMock.Setup(x => x.ReadConfiguration(It.IsAny<bool>())).Returns(pluginConfig);
 
             PluginInstanceManager<TestablePluginBase> instanceManager =
-                new PluginInstanceManager<TestablePluginBase>(_configSourceMock.Object, _instanceFactoryMock.Object);
+                new(_configSourceMock.Object, _instanceFactoryMock.Object);
 
             List<PluginConfiguration> pluginConfigurations = instanceManager.GetPluginConfigurations();
 
@@ -93,7 +93,7 @@ namespace Codelux.Tests.Plugins
         [Test]
         public void GivenPluginInstanceManagerWithLoadedPluginConfigurationsWhenIStartThenPluginsAreStarted()
         {
-            TestablePlugin plugin = new TestablePlugin();
+            TestablePlugin plugin = new();
 
             _instanceFactoryMock.Setup(x => x.CreateInstance<TestablePluginBase>(typeof(TestablePlugin)))
                 .Returns(plugin);
@@ -109,7 +109,7 @@ namespace Codelux.Tests.Plugins
         [Test]
         public void GivenPluginInstanceManagerWithRunningPluginsWhenIStopThenPlugginsAreStopped()
         {
-            TestablePlugin plugin = new TestablePlugin();
+            TestablePlugin plugin = new();
 
             _instanceFactoryMock.Setup(x => x.CreateInstance<TestablePluginBase>(typeof(TestablePlugin)))
                 .Returns(plugin);

@@ -43,7 +43,7 @@ namespace Codelux.Http
 
                 request.RequestUri = new(url);
             }
-            else throw new Exception($"{nameof(request)} param RequestUri property is not set.");
+            else throw new($"{nameof(request)} param RequestUri property is not set.");
 
             return await _client.SendAsync(request, cancellationToken).ConfigureAwait(false);
         }
@@ -65,7 +65,7 @@ namespace Codelux.Http
 
                 request.RequestUri = new(url);
             }
-            else throw new Exception($"{nameof(request)} param RequestUri property is not set.");
+            else throw new($"{nameof(request)} param RequestUri property is not set.");
 
 
             return await _client.SendAsync(request, cancellationToken).ConfigureAwait(false);

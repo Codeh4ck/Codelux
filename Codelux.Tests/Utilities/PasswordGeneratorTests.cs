@@ -12,7 +12,7 @@ namespace Codelux.Tests.Utilities
         [SetUp]
         public void Setup()
         {
-            _passwordGenerator = new PasswordGenerator();
+            _passwordGenerator = new();
         }
 
         [Test]

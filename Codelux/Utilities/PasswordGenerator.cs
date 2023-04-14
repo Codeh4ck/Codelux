@@ -5,13 +5,13 @@ namespace Codelux.Utilities
 {
     public class PasswordGenerator : IPasswordGenerator
     {
-        private static readonly Random Random = new Random(DateTime.Now.Millisecond);
+        private static readonly Random Random = new(DateTime.Now.Millisecond);
 
         public string GeneratePassword(int length, bool capitals = true, bool numbers = false, bool symbols = false)
         {
             string initialPool = "abcdefghijklmnopqrstuvwxyz";
 
-            StringBuilder charPoolBuilder = new StringBuilder();
+            StringBuilder charPoolBuilder = new();
 
             charPoolBuilder.Append(initialPool);
 
@@ -26,7 +26,7 @@ namespace Codelux.Utilities
 
             string charPool = charPoolBuilder.ToString();
 
-            StringBuilder passwordBuilder = new StringBuilder();
+            StringBuilder passwordBuilder = new();
 
             for (int x = 0; x < length; x++)
                 passwordBuilder.Append(charPool[Random.Next(0, charPool.Length - 1)]);

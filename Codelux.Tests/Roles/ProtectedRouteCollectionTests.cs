@@ -17,8 +17,8 @@ namespace Codelux.Tests.Roles
         [SetUp]
         public void Setup()
         {
-            _roleValidatorMock = new Mock<IRoleValidator>();
-            _routeCollection = new ProtectedRouteCollection(_roleValidatorMock.Object);
+            _roleValidatorMock = new();
+            _routeCollection = new(_roleValidatorMock.Object);
         }
 
         [Test]
@@ -58,10 +58,10 @@ namespace Codelux.Tests.Roles
         [Test]
         public void GivenRouteCollectionWhenIMakeRequestAndUserHasRoleThenCanExecuteReturnsTrue()
         {
-            TestRoleModel model = new TestRoleModel()
+            TestRoleModel model = new()
             {
                 Id = Guid.NewGuid(),
-                Roles = new List<IRole>()
+                Roles = new()
                 {
                     new MemberRole(),
                     new ModeratorRole()
@@ -84,10 +84,10 @@ namespace Codelux.Tests.Roles
         [Test]
         public void GivenRouteCollectionWhenIMakeRequestAndUserDoesNotHaveRoleThenCanExecuteReturnsFalse()
         {
-            TestRoleModel model = new TestRoleModel()
+            TestRoleModel model = new()
             {
                 Id = Guid.NewGuid(),
-                Roles = new List<IRole>()
+                Roles = new()
                 {
                     new MemberRole(),
                     new ModeratorRole()

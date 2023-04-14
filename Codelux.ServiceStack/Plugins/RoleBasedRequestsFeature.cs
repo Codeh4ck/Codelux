@@ -52,11 +52,11 @@ namespace Codelux.ServiceStack.Plugins
                         response.StatusDescription = UnauthorizedRequestErrorMessage;
                         response.ContentType = request.ContentType;
 
-                        ServiceErrorException exception = new ServiceErrorException(nameof(RoleBasedRequestsFeature), 0,
+                        ServiceErrorException exception = new(nameof(RoleBasedRequestsFeature), 0,
                             UnauthorizedRequestStatusCode, UnauthorizedRequestErrorMessage);
                         
                         response.Dto = DtoUtils.CreateErrorResponse(request, exception,
-                            new ResponseStatus(response.StatusCode.ToString()));
+                            new(response.StatusCode.ToString()));
 
                         await response.WriteAsync(response.Dto.ToJson());
                         await response.EndRequestAsync();

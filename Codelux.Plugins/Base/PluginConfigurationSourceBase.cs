@@ -23,7 +23,7 @@ namespace Codelux.Plugins.Base
             }
 
             BaseDirectory = baseDirectory;
-            PluginConfigurations = new Dictionary<Type, PluginConfiguration>();
+            PluginConfigurations = new();
 
             BaseDirectory = baseDirectory;
         }
