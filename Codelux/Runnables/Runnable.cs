@@ -46,7 +46,7 @@ namespace Codelux.Runnables
             }
         }
 
-        private void Dispose(bool disposing) => Stop();
+        protected virtual void Dispose(bool disposing) => Stop();
 
         public void Dispose()
         {
