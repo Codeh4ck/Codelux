@@ -7,8 +7,8 @@ namespace Codelux.Runnables
         private RunnableStatus _status = RunnableStatus.Stopped;
         public bool IsRunning => _status == RunnableStatus.Running;
 
-        public abstract void OnStart(object context = null);
-        public abstract void OnStop();
+        protected abstract void OnStart(object context = null);
+        protected abstract void OnStop();
 
         public void Start(object context = null)
         {
@@ -46,7 +46,7 @@ namespace Codelux.Runnables
             }
         }
 
-        public void Dispose(bool disposing) => Stop();
+        private void Dispose(bool disposing) => Stop();
 
         public void Dispose()
         {

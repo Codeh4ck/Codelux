@@ -62,7 +62,7 @@ namespace Codelux.Tests.Runnables
     {
         public int CurrentValue { get; set; } = 0;
 
-        public override void OnStart(object context = null)
+        protected override void OnStart(object context = null)
         {
             if (context != null)
             {
@@ -76,7 +76,7 @@ namespace Codelux.Tests.Runnables
                 CurrentValue = 10;
         }
 
-        public override void OnStop()
+        protected override void OnStop()
         {
             CurrentValue = -1;
         }

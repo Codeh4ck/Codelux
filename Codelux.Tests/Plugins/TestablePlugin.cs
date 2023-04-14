@@ -16,13 +16,13 @@ namespace Codelux.Tests.Plugins
     {
         public override bool Flag { get; set; }
 
-        public override void OnStart(object context = null)
+        protected override void OnStart(object context = null)
         {
             Assert.IsTrue(IsRunning);
             Process(IsRunning);
         }
 
-        public override void OnStop()
+        protected override void OnStop()
         {
             Assert.IsFalse(IsRunning);
             Process(IsRunning);
@@ -59,13 +59,13 @@ namespace Codelux.Tests.Plugins
 
         public override bool Flag { get; set; }
 
-        public override void OnStart(object context = null)
+        protected override void OnStart(object context = null)
         {
             Assert.IsTrue(IsRunning);
             Process(IsRunning);
         }
 
-        public override void OnStop()
+        protected override void OnStop()
         {
             Assert.IsFalse(IsRunning);
             Process(IsRunning);

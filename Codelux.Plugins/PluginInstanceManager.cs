@@ -61,7 +61,7 @@ namespace Codelux.Plugins
                 plugin.Stop();
         }
 
-        public override void OnStart(object context = null)
+        protected override void OnStart(object context = null)
         {
             _plugins = new();
 
@@ -78,7 +78,7 @@ namespace Codelux.Plugins
             }
         }
 
-        public override void OnStop()
+        protected override void OnStop()
         {
             foreach (TPlugin plugin in _plugins.Values)
                 plugin.Stop();
