@@ -16,5 +16,7 @@ namespace Codelux.Utilities.Crypto
             byte[] data = Convert.FromBase64String(password);
             return Encoding.UTF8.GetString(data);
         }
+
+        public bool Verify(string password, string hash) => Encrypt(password) == hash;
     }
 }
