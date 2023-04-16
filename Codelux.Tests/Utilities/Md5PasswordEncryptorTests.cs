@@ -9,7 +9,7 @@ namespace Codelux.Tests.Utilities
         private Md5PasswordEncryptor _encryptor;
 
         private const string PlainTextPassword = "TestPassword123";
-        private const string HashedPassword = "9b599faac222a0dfcfab49148ce40c26";
+        private const string HashedPassword = "9b599faac222a0dfcfab49148ce40c26"; // Hashed with external MD5 hashing tool for cross-reference
 
         [SetUp]
         public void Setup()
@@ -29,6 +29,20 @@ namespace Codelux.Tests.Utilities
         {
             string result = _encryptor.Decrypt(HashedPassword);
             Assert.AreEqual(HashedPassword, result);
+        }
+
+        [Test]
+        public void GivenMd5EncryptorWhenIVerifyCorrectPasswordThenTrueIsReturned()
+        {
+            bool isVerified = _encryptor.Verify(PlainTextPassword, HashedPassword);
+            Assert.IsTrue(isVerified);
+        }
+        
+        [Test]
+        public void GivenMd5EncryptorWhenIVerifyWrongPasswordThenFalseIsReturned()
+        {
+            bool isVerified = _encryptor.Verify("NotTheSamePassword", HashedPassword);
+            Assert.IsFalse(isVerified);
         }
     }
 }
