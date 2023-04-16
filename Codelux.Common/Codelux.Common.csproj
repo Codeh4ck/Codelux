@@ -13,11 +13,11 @@
     <RepositoryUrl>https://github.com/Codeh4ck/Codelux</RepositoryUrl>
     <PackageReleaseNotes></PackageReleaseNotes>
     <RepositoryType>Git</RepositoryType>
-    <AssemblyVersion>1.2.8</AssemblyVersion>
+    <AssemblyVersion>1.2.9</AssemblyVersion>
     <Company>Nikolas Andreou</Company>
     <PackageIconUrl />
     <PackageTags>dependency injection, password encryption, servicestack, helper, helpers, cache, caching, encryption, hashing, hash, encrypt, dependency, injection, DI, plugin, plugins</PackageTags>
-    <FileVersion>1.2.8</FileVersion>
+    <FileVersion>1.2.9</FileVersion>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Title>Codelux.Common</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
