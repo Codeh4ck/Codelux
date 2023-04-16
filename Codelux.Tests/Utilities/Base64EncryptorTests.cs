@@ -9,7 +9,7 @@ namespace Codelux.Tests.Utilities
         private Base64Encryptor _encryptor;
 
         private const string TestString = "This is a test string!";
-        private const string TestStringBase64 = "VGhpcyBpcyBhIHRlc3Qgc3RyaW5nIQ==";
+        private const string TestStringBase64 = "VGhpcyBpcyBhIHRlc3Qgc3RyaW5nIQ=="; // Encoded with external Base64 encoding tool for cross-reference
 
         [SetUp]
         public void Setup()
@@ -32,6 +32,20 @@ namespace Codelux.Tests.Utilities
 
             result = _encryptor.Decrypt(result);
             Assert.AreEqual(TestString, result);
+        }
+        
+        [Test]
+        public void GivenBase64EncryptorWhenIVerifyCorrectPasswordThenTrueIsReturned()
+        {
+            bool isVerified = _encryptor.Verify(TestString, TestStringBase64);
+            Assert.IsTrue(isVerified);
+        }
+        
+        [Test]
+        public void GivenBase64EncryptorWhenIVerifyWrongPasswordThenFalseIsReturned()
+        {
+            bool isVerified = _encryptor.Verify("NotTheSameString", TestStringBase64);
+            Assert.IsFalse(isVerified);
         }
     }
 }

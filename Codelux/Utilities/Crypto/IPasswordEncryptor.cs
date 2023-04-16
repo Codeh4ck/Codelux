@@ -4,5 +4,6 @@
     {
         string Encrypt(string password);
         string Decrypt(string password);
+        bool Verify(string password, string hash);
     }
 }

@@ -25,5 +25,7 @@ namespace Codelux.Utilities.Crypto
             // Could alternatively throw an exception but we want the caller to handle that
             return password;
         }
+
+        public bool Verify(string password, string hash) => Encrypt(password) == hash;
     }
 }
