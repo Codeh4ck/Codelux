@@ -15,7 +15,7 @@ public class Pbkdf2PasswordEncryptor : IPasswordEncryptor
 
         byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
 
-        using var pbkdf2 = new Rfc2898DeriveBytes(passwordBytes, salt, 10000);
+        using var pbkdf2 = new Rfc2898DeriveBytes(passwordBytes, salt, 10000, HashAlgorithmName.SHA256);
 
         byte[] hashedPassword = pbkdf2.GetBytes(256 / 8);
         string base64Salt = Convert.ToBase64String(salt);
@@ -39,7 +39,7 @@ public class Pbkdf2PasswordEncryptor : IPasswordEncryptor
         byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
         byte[] saltBytes = Convert.FromBase64String(hashParts[0]);
         
-        using var pbkdf2 = new Rfc2898DeriveBytes(passwordBytes, saltBytes, 10000);
+        using var pbkdf2 = new Rfc2898DeriveBytes(passwordBytes, saltBytes, 10000, HashAlgorithmName.SHA256);
 
         byte[] hashedPassword = pbkdf2.GetBytes(256 / 8);
 
