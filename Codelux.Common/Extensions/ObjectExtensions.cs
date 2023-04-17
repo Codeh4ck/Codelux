@@ -6,14 +6,14 @@ namespace Codelux.Common.Extensions
 {
     public static class ObjectExtensions
     {
-        public static void Guard<T>([NotNull] this T o, [CallerArgumentExpression("o")] string message = "") where T : class
+        public static void Guard<T>(this T o, string message = "", [CallerArgumentExpression("o")] string paramName = "") where T : class
         {
-            if (o == null) throw new ArgumentNullException(message);
+            if (o == null) throw new ArgumentNullException(message, paramName);
         }
 
-        public static void Guard([NotNull] this string s, [CallerArgumentExpression("s")] string message = "")
+        public static void Guard(this string s, string message = "", [CallerArgumentExpression("s")] string paramName = "")
         {
-            if (string.IsNullOrEmpty(s)) throw new ArgumentNullException(message);
+            if (string.IsNullOrEmpty(s)) throw new ArgumentNullException(message, paramName);
         }
     }
 }
