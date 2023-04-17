@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
-    <Version>1.2.9</Version>
+    <Version>1.3.0</Version>
     <Authors>Nikolas Andreou</Authors>
     <Company>Nikolas Andreou</Company>
     <Description>Codelux.Plugins is a minimal, agnostic and simple plugin framework that can also manage plugin configurations.</Description>
@@ -14,8 +14,8 @@
     <RepositoryUrl>https://github.com/Codeh4ck/Codelux</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>dependency injection, password encryption, servicestack, helper, helpers, cache, caching, encryption, hashing, hash, encrypt, dependency, injection, DI, plugin, plugins</PackageTags>
-    <AssemblyVersion>1.2.9</AssemblyVersion>
-    <FileVersion>1.2.9</FileVersion>
+    <AssemblyVersion>1.3.0</AssemblyVersion>
+    <FileVersion>1.3.0</FileVersion>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Title>Codelux.Plugins</Title>
