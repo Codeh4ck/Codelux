@@ -14,9 +14,9 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/setup-dotnet@v1
-        name: Setup .NET 6
+        name: Setup .NET 7
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '7.0.x'
           include-prerelease: true
 
       - uses: actions/checkout@v2
