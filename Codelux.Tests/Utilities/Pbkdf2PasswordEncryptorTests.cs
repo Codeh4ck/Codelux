@@ -10,8 +10,8 @@ public class Pbkdf2PasswordEncryptorTests
     private Pbkdf2PasswordEncryptor _encryptor;
 
     private const string PlainTextPassword = "TestPassword123";
-    private const string SaltBase64 = "6MUTe4zv3EHNmEfZcAf0lQ==";
-    private const string HashedPasswordBase64 = "VLE8vMP+Yi56M5lDIQq5Wj3A70MdnzJpk9qF6C7f59A=";
+    private const string SaltBase64 = "NF6VQNAH62i2FckPpaJj9Q==";
+    private const string HashedPasswordBase64 = "+j7BkDCKmf61hL4ue7fWdYVY2bGwGFxVSpxOBfrEmEs=";
     private const string HashedPasswordFullBase64 = $"{SaltBase64}${HashedPasswordBase64}";
 
     [SetUp]
