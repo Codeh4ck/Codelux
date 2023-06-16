@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Version>1.3.0</Version>
+    <Version>1.3.1</Version>
     <Authors>Nikolas Andreou</Authors>
     <Description>Codelux.ServiceStack is a collection of ServiceStack extensions. It includes elegant OrmLite model mapping tools, bootstrapping plugins and modular dependency injection base code.</Description>
     <Copyright>Copyright ©2021-2023 Nikolas Andreou. All rights reserved.</Copyright>
@@ -11,8 +11,8 @@
     <RepositoryUrl>https://github.com/Codeh4ck/Codelux</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <AssemblyVersion>1.3.0</AssemblyVersion>
-    <FileVersion>1.3.0</FileVersion>
+    <AssemblyVersion>1.3.1</AssemblyVersion>
+    <FileVersion>1.3.1</FileVersion>
     <PackageIconUrl />
     <PackageTags>dependency injection, password encryption, servicestack, helper, helpers, cache, caching, encryption, hashing, hash, encrypt, dependency, injection, DI, plugin, plugins</PackageTags>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
@@ -37,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ServiceStack" Version="6.8.0" />
+    <PackageReference Include="ServiceStack" Version="6.9.0" />
   </ItemGroup>
 
 </Project>
