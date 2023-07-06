@@ -6,8 +6,8 @@ namespace Codelux.Common.ResultType;
 
 internal readonly struct ResultFail<TOk, TFail> : IResult<TOk, TFail>
 {
-    public bool IsOk => true;
-    public bool IsFail => false;
+    public bool IsOk => false;
+    public bool IsFail => true;
     public TOk OkValue => throw new InvalidOperationException("Result type is Fail and does not contain Ok value.");
     
     public TFail FailValue { get; }
@@ -25,11 +25,11 @@ internal readonly struct ResultFail<TOk, TFail> : IResult<TOk, TFail>
     public override bool Equals(object obj)
     {
         if (ReferenceEquals(null, obj)) return false;
-        return obj is ResultOk<TOk, TFail> fail && Equals(fail);
+        return obj is ResultFail<TOk, TFail> fail && Equals(fail);
     }
     
     [Pure]
-    public bool Equals(ResultOk<TOk, TFail> other) => other.IsFail && EqualityComparer<TFail>.Default.Equals(FailValue, other.FailValue);
+    public bool Equals(ResultFail<TOk, TFail> other) => other.IsFail && EqualityComparer<TFail>.Default.Equals(FailValue, other.FailValue);
     
     [Pure]
     public bool Equals(IResult<TOk, TFail> result) => result.IsFail && EqualityComparer<TFail>.Default.Equals(FailValue, result.FailValue);
