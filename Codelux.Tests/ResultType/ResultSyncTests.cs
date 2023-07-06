@@ -36,4 +36,20 @@ public class ResultSyncTests
         Assert.Throws<InvalidOperationException>(() => _ = result.OkValue);
         Assert.IsTrue(result.FailValue == failResult);
     }
+
+    [Test]
+    public void GivenValidOkAndFailResultsWhenICloneThenTheCorrectClonedResultsAreReturned()
+    {
+        TestOkResult testOkResult = TestOkResult.Instance;
+        IResult<TestOkResult, TestFailResult> okResult = Result.Ok<TestOkResult, TestFailResult>(testOkResult);
+        
+        TestFailResult testFailResult = TestFailResult.Instance;
+        IResult<TestOkResult, TestFailResult> failResult = Result.Fail<TestOkResult, TestFailResult>(testFailResult);
+        
+        var clonedOkResult = Result.Clone(okResult);
+        var clonedFailResult = Result.Clone(failResult);
+        
+        Assert.AreEqual(clonedOkResult, okResult);
+        Assert.AreEqual(clonedFailResult, failResult);
+    }
 }
