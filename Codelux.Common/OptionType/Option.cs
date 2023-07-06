@@ -40,8 +40,6 @@ public readonly struct Option<T> : IEquatable<Option<T>>
 
     public bool Equals(Option<T> other)
     {
-        if (other == null) return false;
-        
         return !HasValue && !other.HasValue ||
                HasValue && other.HasValue && Value.Equals(other.Value);
     }
