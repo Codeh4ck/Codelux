@@ -1,4 +1,16 @@
-﻿namespace Codelux.Tests.ResultType;
+﻿using Codelux.Common.ResultType;
+
+namespace Codelux.Tests.ResultType;
+
+
+public static class TestResults
+{
+    public static IResult<TestOkResult, TestFailResult> OkResult =>
+        Result.Ok<TestOkResult, TestFailResult>(TestOkResult.Instance);
+    
+    public static IResult<TestOkResult, TestFailResult> FailResult =>
+        Result.Fail<TestOkResult, TestFailResult>(TestFailResult.Instance);
+}
 
 public class TestOkResult
 {
