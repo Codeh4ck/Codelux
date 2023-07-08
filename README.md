@@ -45,6 +45,7 @@ PM> Install-Package Codelux.Plugins
 
 __Codelux provides the following tools:__
 
+* Monad types (F#-style Result and Option) that can contain one of two possible values
 * Thread-safe in-memory cache with expirable objects
 * Dependency registration modules for the Unity DI framework
 * A dependency container (inherits UnityContainer) that searches the current AppDomain for dependency modules to auto-register dependencies
