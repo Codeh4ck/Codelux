@@ -11,8 +11,10 @@ namespace Codelux.ServiceStack
     {
         public Task<VersionResponse> Get(VersionRequest request)
         {
-            Assembly assembly = Assembly.GetCallingAssembly();
-            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetCallingAssembly().Location);
+            Assembly assembly = Assembly.GetEntryAssembly();
+            if (assembly == null) assembly = Assembly.GetExecutingAssembly();
+            
+            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
 
             return Task.FromResult(new VersionResponse()
             {
