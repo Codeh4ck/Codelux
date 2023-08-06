@@ -1,7 +1,7 @@
 ﻿using System;
 using ServiceStack;
 
-namespace Codelux.ServiceStack.Utilities
+namespace Codelux.ServiceStack.IoC
 {
     public interface IDependencyModule : IDisposable
     {
