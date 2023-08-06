@@ -1,6 +1,6 @@
 ﻿using ServiceStack;
 
-namespace Codelux.ServiceStack.Utilities
+namespace Codelux.ServiceStack.IoC
 {
     public abstract class DependencyModuleBase : IDependencyModule
     {

@@ -1,11 +1,24 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using Codelux.Common.Extensions;
 
 namespace Codelux.Common.Utilities;
 
 public static class Ensure
 {
+    public static T ArgNotNull<T>(T arg, [CallerArgumentExpression("arg")] string paramName = "") where T : class
+    {
+        if (arg == null) throw new ArgumentNullException(paramName);
+        return arg;
+    }
+    
+    public static string ArgNotNull(string arg, [CallerArgumentExpression("arg")] string paramName = "")
+    {
+        if (string.IsNullOrEmpty(arg)) throw new ArgumentNullException(paramName);
+        return arg;
+    }
+    
     public static void ItIsTrue(bool expressionOrValue, string message = "", [CallerArgumentExpression("expressionOrValue")] string paramName = "")
     {
         if (!expressionOrValue) throw new ArgumentException(message, paramName);
