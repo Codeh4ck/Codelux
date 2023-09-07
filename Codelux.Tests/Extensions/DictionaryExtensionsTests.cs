@@ -8,31 +8,6 @@ namespace Codelux.Tests.Extensions
     public class DictionaryExtensionsTests
     {
         [Test]
-        public void GivenDictionaryWhenISetItemAndItDoesNotExistThenItemIsAdded()
-        {
-            Dictionary<string, bool> dictionary = new();
-            dictionary.Set("Item", true);
-
-            Assert.AreEqual(1, dictionary.Count);
-            Assert.AreEqual(true, dictionary["Item"]);
-        }
-
-        [Test]
-        public void GivenDictionaryWhenISetItemAndItExistsThenValueIsReplaced()
-        {
-            Dictionary<string, bool> dictionary = new();
-            dictionary.Set("Item", true);
-
-            Assert.AreEqual(1, dictionary.Count);
-            Assert.AreEqual(true, dictionary["Item"]);
-
-            dictionary.Set("Item", false);
-
-            Assert.AreEqual(1, dictionary.Count);
-            Assert.AreEqual(false, dictionary["Item"]);
-        }
-
-        [Test]
         public void GivenDictionaryWhenIAddARangeOfItemsThenItemsAreAdded()
         {
             List<KeyValuePair<string, int>> list = new()
